@@ -27,16 +27,24 @@ public class UsuarioController {
 
     // Métodos GETs //
 
+    @GetMapping
+    public List<Usuario> obterTodos(){
+        return usuarioService.obterTodos();
+    }
+
     @GetMapping("/{id}")
     public Optional<Usuario> obterPorNome(@PathVariable(value = "id") UUID uuid){
         return usuarioService.obterPorId(uuid);
     }
 
     @PostMapping
-    public ResponseEntity<Void> criarUsuario(@RequestBody UsuarioDTO usuarioDTO){
-        Usuario usuario = usuarioDTO.mapearParaUsuario();
+    public ResponseEntity<Void> criarUsuario(@RequestBody Usuario usuario){
         usuarioService.criarUsuario(usuario);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{/id}").buildAndExpand(usuario.getId()).toUri();
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("{/id}")
+                .buildAndExpand(usuario.getId())
+                .toUri();
         return ResponseEntity.created(uri).build();
     }
 

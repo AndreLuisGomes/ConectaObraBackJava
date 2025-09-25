@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum GuiaStatus {
 
     EM_ESPERA("Em espera"),
-    PROJETANDO("Projetando"),
+    PROJETANDO("Em Projeção"),
+    CORTANDO("Em corte"),
     FABRICANDO("Fabricando"),
     FINALIZADA("Finalizada"),
     TRANSPORTANDO("Transportando");

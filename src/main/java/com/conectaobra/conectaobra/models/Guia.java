@@ -22,5 +22,9 @@ public class Guia {
 
     private String nome;
 
+    @Enumerated
     private GuiaStatus status;
+
+    @ManyToOne
+    private Cliente cliente;
 }

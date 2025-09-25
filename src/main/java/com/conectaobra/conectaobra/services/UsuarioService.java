@@ -36,14 +36,6 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-//    public List<Usuario> obterPorParametros(String nome, Funcao funcao, Setor setor) {
-////        return usuarioRepository.findAll(
-////                Specification.where(UsuarioSpecs.obterPorNome(nome))
-////                        .and(UsuarioSpecs.obterPorFuncao(funcao))
-////                        .and(UsuarioSpecs.obterPorSetor(setor))
-////        );
-//    }
-
     public Optional<Usuario> obterPorId(UUID uuid){
         return usuarioRepository.findById(uuid);
     }

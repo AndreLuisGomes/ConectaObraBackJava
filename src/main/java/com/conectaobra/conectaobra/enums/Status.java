@@ -5,10 +5,11 @@ import lombok.Getter;
 @Getter
 public enum Status {
 
-    EM_DESENHO("Em projeção"),
+    PROJETANDO("Em projeção"),
     EM_PREPARACAO("Em preparação"),
     FABRICANDO("Fabricando"),
     PINTURA("Pintando"),
+    FINALIZADA("Finalizada"),
     AGUARDANDO("Aguardando");
 
     private final String descricao;
