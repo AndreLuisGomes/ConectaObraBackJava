@@ -3,15 +3,14 @@ package com.conectaobra.conectaobra.models;
 import com.conectaobra.conectaobra.enums.GuiaStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "guias")
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Guia {
 
     @Id

@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pecas")
+@RequestMapping("/suportes")
 @Data
 public class SuporteController {
 
@@ -19,7 +19,7 @@ public class SuporteController {
 
     @GetMapping
     public List<Suporte> obterTodos(){
-        return suporteService.getSuporteRepository().findAll();
+        return suporteService.obterTodos();
     }
 
     @GetMapping("/{tag}")

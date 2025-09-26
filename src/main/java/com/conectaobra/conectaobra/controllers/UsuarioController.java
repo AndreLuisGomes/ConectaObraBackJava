@@ -1,16 +1,12 @@
 package com.conectaobra.conectaobra.controllers;
 
-import com.conectaobra.conectaobra.dtos.UsuarioDTO;
-import com.conectaobra.conectaobra.enums.Funcao;
-import com.conectaobra.conectaobra.enums.Setor;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import lombok.Data;
 import com.conectaobra.conectaobra.models.Usuario;
-import org.springframework.data.jpa.domain.Specification;
+import com.conectaobra.conectaobra.services.UsuarioService;
+import lombok.Data;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.conectaobra.conectaobra.services.UsuarioService;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;

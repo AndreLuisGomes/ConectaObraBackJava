@@ -2,13 +2,13 @@ package com.conectaobra.conectaobra.services;
 
 import com.conectaobra.conectaobra.models.Suporte;
 import com.conectaobra.conectaobra.repositories.SuporteRepository;
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Data
+@AllArgsConstructor
 public class SuporteService {
 
     // Injeção de dependências
@@ -22,7 +22,7 @@ public class SuporteService {
     }
 
     public List<Suporte> obterPorTag(String tag){
-        return suporteRepository.findByTag();
+        return suporteRepository.findByTag(tag);
     }
 
     public void salvarSuporte(Suporte suporte){

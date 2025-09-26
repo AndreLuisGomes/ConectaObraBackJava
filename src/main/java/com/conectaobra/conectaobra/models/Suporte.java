@@ -4,6 +4,8 @@ import com.conectaobra.conectaobra.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -15,11 +17,16 @@ public class Suporte {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private String name;
+
     private String tag;
 
     @ManyToOne
     private Guia guia;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    @OneToMany
+    private List<SuporteHistorico> historico = new ArrayList<SuporteHistorico>();
 }

@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface SuporteRepository extends JpaRepository<Suporte, UUID> {
 
-    List<Suporte> findByTag();
+    List<Suporte> findByTag(String tag);
 }

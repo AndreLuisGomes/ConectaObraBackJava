@@ -1,20 +1,16 @@
 package com.conectaobra.conectaobra.services;
 
-import com.conectaobra.conectaobra.enums.Funcao;
-import com.conectaobra.conectaobra.enums.Setor;
-import com.conectaobra.conectaobra.specs.UsuarioSpecs;
-import lombok.Data;
 import com.conectaobra.conectaobra.models.Usuario;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.stereotype.Service;
 import com.conectaobra.conectaobra.repositories.UsuarioRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@Data
+@AllArgsConstructor
 public class UsuarioService {
 
     // Injeção de dependências //
