@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "historico_suporte")
+@Table(name = "suporte_historico")
 public class SuporteHistorico {
 
     @Id
@@ -17,6 +17,7 @@ public class SuporteHistorico {
 
     @ManyToOne
     private Usuario usuario;
+
 
     private LocalDateTime dataAlteracao;
 

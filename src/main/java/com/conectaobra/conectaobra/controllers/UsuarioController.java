@@ -1,5 +1,6 @@
 package com.conectaobra.conectaobra.controllers;
 
+import com.conectaobra.conectaobra.dtos.UsuarioDTO;
 import com.conectaobra.conectaobra.models.Usuario;
 import com.conectaobra.conectaobra.services.UsuarioService;
 import lombok.Data;
@@ -34,7 +35,8 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> criarUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<Void> criarUsuario(@RequestBody UsuarioDTO usuarioDTO){
+        Usuario usuario = usuarioDTO.mapearParaUsuario();
         usuarioService.criarUsuario(usuario);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()

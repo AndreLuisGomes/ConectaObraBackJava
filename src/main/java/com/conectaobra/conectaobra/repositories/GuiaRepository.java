@@ -8,5 +8,7 @@ import java.util.UUID;
 
 public interface GuiaRepository extends JpaRepository<Guia, UUID> {
 
-    public Optional<Guia> findById(UUID uuid);
+    Optional<Guia> findById(UUID uuid);
+
+    Guia findByNome(String nome);
 }

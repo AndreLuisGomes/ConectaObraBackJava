@@ -15,12 +15,16 @@ public class GuiaService {
 
     private final GuiaRepository guiaRepository;
 
-    public List<Guia> obterGuia(){
+    public List<Guia> obterTodos(){
         return guiaRepository.findAll();
     }
 
     public Guia salvarGuia(Guia guia){
         return guiaRepository.save(guia);
+    }
+
+    public Guia obterGuiaPorNome(String nome){
+        return guiaRepository.findByNome(nome);
     }
 
     public Guia atualizarGuia(Guia guia){

@@ -2,9 +2,7 @@ package com.conectaobra.conectaobra.models;
 
 import com.conectaobra.conectaobra.enums.GuiaStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
@@ -21,9 +19,9 @@ public class Guia {
 
     private String nome;
 
-    @Enumerated
-    private GuiaStatus status;
+    @Enumerated(EnumType.STRING)
+    private GuiaStatus guiaStatus;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Cliente cliente;
 }

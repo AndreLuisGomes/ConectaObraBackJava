@@ -22,9 +22,9 @@ public class Usuario {
 
     private String senha;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Funcao funcao;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Setor setor;
 }

@@ -21,12 +21,15 @@ public class Suporte {
 
     private String tag;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "guia_id")
     private Guia guia;
 
-    @Enumerated(EnumType.STRING)
+    private String descricao;
+
+    @Enumerated
     private Status status;
 
-    @OneToMany
-    private List<SuporteHistorico> historico = new ArrayList<SuporteHistorico>();
+    @OneToMany(mappedBy = "suporte", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SuporteHistorico> suporteHistorico = new ArrayList<>();
 }

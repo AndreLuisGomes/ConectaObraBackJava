@@ -1,5 +1,6 @@
 package com.conectaobra.conectaobra.controllers;
 
+import com.conectaobra.conectaobra.dtos.ClienteDTO;
 import com.conectaobra.conectaobra.models.Cliente;
 import com.conectaobra.conectaobra.services.ClienteService;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,8 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> salvarCliente(@RequestBody Cliente cliente){
+    public ResponseEntity<Void> salvarCliente(@RequestBody ClienteDTO clienteDTO){
+        Cliente cliente = clienteDTO.mapearParaCliente();
         clienteService.salvarCliente(cliente);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()

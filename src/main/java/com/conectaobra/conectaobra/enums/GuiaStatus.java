@@ -1,8 +1,5 @@
 package com.conectaobra.conectaobra.enums;
 
-import lombok.Getter;
-
-@Getter
 public enum GuiaStatus {
 
     EM_ESPERA("Em espera"),
@@ -12,9 +9,9 @@ public enum GuiaStatus {
     FINALIZADA("Finalizada"),
     TRANSPORTANDO("Transportando");
 
-    private final String descricao;
+    private final String guiaStatus;
 
     GuiaStatus(String descricao) {
-        this.descricao = descricao;
+        this.guiaStatus = descricao;
     }
 }

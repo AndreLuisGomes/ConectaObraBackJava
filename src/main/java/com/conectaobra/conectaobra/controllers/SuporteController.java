@@ -23,7 +23,7 @@ public class SuporteController {
     }
 
     @GetMapping("/{tag}")
-    public List<Suporte> obterPorTag(@PathVariable("tag") String tag){
+    public List<Suporte> obterPorTag(@RequestParam(required = false , name = "tag") String tag){
         return suporteService.obterPorTag(tag);
     }
 
