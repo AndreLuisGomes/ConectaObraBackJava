@@ -1,4 +1,4 @@
-package com.conectaobra.conectaobra.specs;
+package com.conectaobra.conectaobra.repositories.specs;
 
 import com.conectaobra.conectaobra.enums.Funcao;
 import com.conectaobra.conectaobra.enums.Setor;

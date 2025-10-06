@@ -10,6 +10,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/clientes")
@@ -19,12 +20,15 @@ public class ClienteController {
     private final ClienteService clienteService;
 
     @GetMapping
-    public List<Cliente> obterClientes(){
-        return clienteService.obterClientes();
+    public List<Cliente> obterClientesPorParametros(@RequestParam(value = "nome", required = false) String nome,
+                                                              @RequestParam(value = "contato", required = false) String contato,
+                                                              @RequestParam(value = "localizacaoSede", required = false) String localizacaoSede){
+        ClienteDTO clienteDTO = new ClienteDTO(nome, contato, localizacaoSede);
+        return clienteService.obterClientesPorParametros(clienteDTO);
     }
 
     @PostMapping
-    public ResponseEntity<Void> salvarCliente(@RequestBody ClienteDTO clienteDTO){
+    public ResponseEntity<Cliente> salvarCliente(@RequestBody ClienteDTO clienteDTO){
         Cliente cliente = clienteDTO.mapearParaCliente();
         clienteService.salvarCliente(cliente);
         URI uri = ServletUriComponentsBuilder
@@ -32,6 +36,18 @@ public class ClienteController {
                 .path("{/id}")
                 .buildAndExpand(cliente.getId())
                 .toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(cliente);
+    }
+
+    @PutMapping
+    public ResponseEntity<Cliente> atualizarCliente(@RequestBody Cliente cliente){
+        clienteService.salvarCliente(cliente);
+        return ResponseEntity.ok().body(cliente);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deletarCliente(@PathVariable(value = "id") UUID clienteId){
+        clienteService.deletarClientePorId(clienteId);
+        return ResponseEntity.ok().build();
     }
 }
