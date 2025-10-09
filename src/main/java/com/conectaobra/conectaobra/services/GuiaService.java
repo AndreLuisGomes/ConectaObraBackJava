@@ -1,9 +1,13 @@
 package com.conectaobra.conectaobra.services;
 
+import com.conectaobra.conectaobra.dtos.GuiaDTO;
 import com.conectaobra.conectaobra.models.Guia;
 import com.conectaobra.conectaobra.repositories.GuiaRepository;
+import com.conectaobra.conectaobra.repositories.specs.GuiaSpecs;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +19,25 @@ public class GuiaService {
 
     private final GuiaRepository guiaRepository;
 
-    public List<Guia> obterTodos(){
+    public List<Guia> obterGuiaPorParametros(GuiaDTO guiaDTO){
+
+        Specification<Guia> specs = Specification.where(null);
+
+        if(StringUtils.hasText(guiaDTO.nome())){
+            specs = specs.and(GuiaSpecs.nomeLike(guiaDTO.nomeCliente()));
+        }
+
+        if(StringUtils.hasText(guiaDTO.local())){
+            specs = specs.and(GuiaSpecs.localLike(guiaDTO.local()));
+        }
+
+        if (StringUtils.hasText(guiaDTO.nomeCliente())) {
+            specs = specs.and(GuiaSpecs.nomeClienteLike(guiaDTO.nomeCliente()));
+        }
+        if(guiaDTO.guiaStatus() != null){
+            specs = specs.and(GuiaSpecs.guiaStatusEqual(guiaDTO.guiaStatus()));
+        }
+
         return guiaRepository.findAll();
     }
 

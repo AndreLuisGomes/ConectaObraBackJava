@@ -3,9 +3,7 @@ package com.conectaobra.conectaobra.models;
 import com.conectaobra.conectaobra.enums.Funcao;
 import com.conectaobra.conectaobra.enums.Setor;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
@@ -22,9 +20,9 @@ public class Usuario {
 
     private String senha;
 
-    @Enumerated(EnumType.STRING)
-    private Funcao funcao;
+    private String email;
 
-    @Enumerated(EnumType.STRING)
-    private Setor setor;
+    private String funcao;
+
+    private String setor;
 }

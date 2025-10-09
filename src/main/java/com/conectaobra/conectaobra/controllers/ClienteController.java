@@ -20,9 +20,10 @@ public class ClienteController {
     private final ClienteService clienteService;
 
     @GetMapping
-    public List<Cliente> obterClientesPorParametros(@RequestParam(value = "nome", required = false) String nome,
-                                                              @RequestParam(value = "contato", required = false) String contato,
-                                                              @RequestParam(value = "localizacaoSede", required = false) String localizacaoSede){
+    public List<Cliente> obterClientesPorParametros(
+                @RequestParam(value = "nome", required = false) String nome,
+                @RequestParam(value = "contato", required = false) String contato,
+                @RequestParam(value = "localizacaoSede", required = false) String localizacaoSede){
         ClienteDTO clienteDTO = new ClienteDTO(nome, contato, localizacaoSede);
         return clienteService.obterClientesPorParametros(clienteDTO);
     }

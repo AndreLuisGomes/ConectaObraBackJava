@@ -19,9 +19,8 @@ public class Guia {
 
     private String nome;
 
-    @Enumerated(EnumType.STRING)
-    private GuiaStatus guiaStatus;
+    private Status status;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Cliente cliente;
+    private UUID clienteId;
+
 }

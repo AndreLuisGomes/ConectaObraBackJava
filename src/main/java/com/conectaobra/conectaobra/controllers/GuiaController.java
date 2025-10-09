@@ -1,6 +1,7 @@
 package com.conectaobra.conectaobra.controllers;
 
 import com.conectaobra.conectaobra.dtos.GuiaDTO;
+import com.conectaobra.conectaobra.enums.GuiaStatus;
 import com.conectaobra.conectaobra.models.Guia;
 import com.conectaobra.conectaobra.services.GuiaService;
 import lombok.AllArgsConstructor;
@@ -20,8 +21,15 @@ public class GuiaController {
     private final GuiaService guiaService;
 
     @GetMapping
-    public List<Guia> obterGuias(){
-        return guiaService.obterTodos();
+    public List<Guia> obterGuias(
+            @RequestParam(value = "local", required = false) String local,
+            @RequestParam(value = "nome", required = false) String nome,
+            @RequestParam(value = "guiaStatus", required = false) String guiaStatus,
+            @RequestParam(value = "nomeCliente", required = false) String nomeCliente
+            ){
+        GuiaStatus status = GuiaStatus.valueOf(guiaStatus);
+        GuiaDTO guiaDTO = new GuiaDTO(local, nome, status, nomeCliente);
+        return guiaService.obterGuiaPorParametros(guiaDTO);
     }
 
     @GetMapping("/{nome}")
