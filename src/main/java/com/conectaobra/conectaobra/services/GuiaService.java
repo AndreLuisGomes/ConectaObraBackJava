@@ -24,18 +24,19 @@ public class GuiaService {
         Specification<Guia> specs = Specification.where(null);
 
         if(StringUtils.hasText(guiaDTO.nome())){
-            specs = specs.and(GuiaSpecs.nomeLike(guiaDTO.nomeCliente()));
+            specs = specs.and(GuiaSpecs.nomeLike(String.valueOf(guiaDTO.clienteId())));
         }
 
         if(StringUtils.hasText(guiaDTO.local())){
             specs = specs.and(GuiaSpecs.localLike(guiaDTO.local()));
         }
 
-        if (StringUtils.hasText(guiaDTO.nomeCliente())) {
-            specs = specs.and(GuiaSpecs.nomeClienteLike(guiaDTO.nomeCliente()));
+        if (StringUtils.hasText(String.valueOf(guiaDTO.clienteId()))) {
+            specs = specs.and(GuiaSpecs.nomeClienteLike(String.valueOf(guiaDTO.clienteId())));
         }
-        if(guiaDTO.guiaStatus() != null){
-            specs = specs.and(GuiaSpecs.guiaStatusEqual(guiaDTO.guiaStatus()));
+
+        if(guiaDTO.status() != null){
+            specs = specs.and(GuiaSpecs.guiaStatusEqual(guiaDTO.status().getStatus()));
         }
 
         return guiaRepository.findAll();

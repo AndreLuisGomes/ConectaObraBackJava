@@ -1,6 +1,5 @@
 package com.conectaobra.conectaobra.repositories.specs;
 
-import com.conectaobra.conectaobra.enums.GuiaStatus;
 import com.conectaobra.conectaobra.models.Guia;
 import jakarta.annotation.Nullable;
 import org.springframework.data.jpa.domain.Specification;
@@ -14,8 +13,8 @@ public class GuiaSpecs {
         return (root, query, cb) -> cb.like(cb.upper(root.get("nome")), "%" + nome.toUpperCase() + "%");
     }
 
-    public static Specification<Guia> guiaStatusEqual(@Nullable GuiaStatus guiaStatusEnum){
-        return (root, query, cb) -> cb.equal(root.get("guiaStatus"), guiaStatusEnum);
+    public static Specification<Guia> guiaStatusEqual(@Nullable String guiaStatus){
+        return (root, query, cb) -> cb.equal(root.get("guiaStatus"), guiaStatus);
     }
 
     public static Specification<Guia> nomeClienteLike(@Nullable String nomeCliente){

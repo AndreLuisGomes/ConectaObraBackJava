@@ -1,10 +1,8 @@
 package com.conectaobra.conectaobra.dtos;
 
-import com.conectaobra.conectaobra.enums.Funcao;
-import com.conectaobra.conectaobra.enums.Setor;
 import com.conectaobra.conectaobra.models.Usuario;
 
-public record UsuarioDTO(String nome, String senha, Funcao funcao, Setor setor){
+public record UsuarioDTO(String nome, String senha, String funcao, String setor){
 
     public Usuario mapearParaUsuario(){
         Usuario usuario = new Usuario();

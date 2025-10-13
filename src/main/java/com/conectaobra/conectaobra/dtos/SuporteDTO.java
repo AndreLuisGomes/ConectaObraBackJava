@@ -1,18 +1,17 @@
 package com.conectaobra.conectaobra.dtos;
 
-import com.conectaobra.conectaobra.enums.Status;
-import com.conectaobra.conectaobra.models.Guia;
+import com.conectaobra.conectaobra.models.Status;
 import com.conectaobra.conectaobra.models.Suporte;
 
-import java.util.List;
+import java.util.UUID;
 
-public record SuporteDTO(String nome, String tag, Guia guia, Status status, List<SuporteHistorico> suporteHistorico) {
+public record SuporteDTO(String nome, String tag, UUID guiaId, Status status) {
 
     public Suporte mapearParaSuporte(){
         Suporte suporte =  new Suporte();
         suporte.setName(nome);
         suporte.setTag(tag);
-        suporte.setGuia(guia);
+        suporte.setGuiaId(guiaId);
         suporte.setStatus(status);
         return suporte;
     }

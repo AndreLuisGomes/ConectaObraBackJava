@@ -1,7 +1,5 @@
 package com.conectaobra.conectaobra.models;
 
-import com.conectaobra.conectaobra.enums.Funcao;
-import com.conectaobra.conectaobra.enums.Setor;
 import jakarta.persistence.*;
 import lombok.Data;
 

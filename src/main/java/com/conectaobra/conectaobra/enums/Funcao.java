@@ -18,7 +18,6 @@ public enum Funcao {
     SUPERVISOR_LIBERACAO("Supervisor de Liberação");
 
     private final String funcao;
-
     Funcao(String funcao){
         this.funcao = funcao;
     }

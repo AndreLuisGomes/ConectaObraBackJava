@@ -1,6 +1,5 @@
 package com.conectaobra.conectaobra.models;
 
-import com.conectaobra.conectaobra.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "suporte")
 @Data
 public class Suporte {
 
@@ -21,15 +20,13 @@ public class Suporte {
 
     private String tag;
 
+    @Column(name = "guia_id")
     private UUID guiaId;
 
     private Status status;
 
+    @Column(name = "descricao")
     private String descricao;
 
     private String localizacao;
-
-    @OneToMany(mappedBy = "suporte", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Column(name = "status_lista")
-    private List<Status> statusLista = new ArrayList<>();
 }

@@ -1,17 +1,18 @@
 package com.conectaobra.conectaobra.dtos;
 
-import com.conectaobra.conectaobra.enums.GuiaStatus;
-import com.conectaobra.conectaobra.models.Cliente;
 import com.conectaobra.conectaobra.models.Guia;
+import com.conectaobra.conectaobra.models.Status;
 
-public record GuiaDTO(String local, String nome, GuiaStatus guiaStatus, String nomeCliente) {
+import java.util.UUID;
+
+public record GuiaDTO(String local, String nome, Status status, UUID clienteId) {
 
     public Guia mapearParaGuia(){
         Guia guia = new Guia();
         guia.setLocal(local);
-        guia.setGuiaStatus(guiaStatus);
+        guia.setStatus(status);
         guia.setNome(nome);
-        guia.setNomeCliente(nomeCliente);
+        guia.setClienteId(clienteId);
         return guia;
     }
 }
