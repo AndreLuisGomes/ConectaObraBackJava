@@ -13,9 +13,10 @@ A API é responsável por gerenciar os dados de **clientes, guias, suportes, usu
 - Spring Boot
 - Spring Web
 - Spring Data JPA
+- Spring Security
 - Hibernate
 - **Gradle**
-- Banco de dados relacional (configurável)
+- Banco de dados H2
 - Lombok
 
 ---
@@ -36,7 +37,7 @@ A API é responsável por gerenciar os dados de **clientes, guias, suportes, usu
 ### Pré-requisitos
 - Java 21
 - Gradle
-- IDE (IntelliJ, VS Code ou Eclipse)
+- IDE IntelliJ
 
 ### Passos
 
@@ -45,7 +46,9 @@ A API é responsável por gerenciar os dados de **clientes, guias, suportes, usu
 ./gradlew bootRun
 ```
 
+---
+
 ## Credenciais de autenticação padrão:
 
-**username:** admin
-**password:** admin
+- **username:** admin
+- **password:** admin
