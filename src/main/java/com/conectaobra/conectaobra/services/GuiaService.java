@@ -35,10 +35,6 @@ public class GuiaService {
             specs = specs.and(GuiaSpecs.nomeClienteLike(String.valueOf(guiaDTO.clienteId())));
         }
 
-        if(guiaDTO.status() != null){
-            specs = specs.and(GuiaSpecs.guiaStatusEqual(guiaDTO.status().getStatus()));
-        }
-
         return guiaRepository.findAll();
     }
 

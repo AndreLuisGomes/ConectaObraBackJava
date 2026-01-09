@@ -15,7 +15,8 @@ public enum Funcao {
     ENCARREGADO_TUBULACAO("Encarregado de Tubulação"),
     ENCARREGADO_FABRICACAO("Encarregado de Fabricação"),
     SUPERVISOR_FABRICACAO("Supervisor de Fabricação"),
-    SUPERVISOR_LIBERACAO("Supervisor de Liberação");
+    SUPERVISOR_LIBERACAO("Supervisor de Liberação"),
+    ADMIN("Admin");
 
     private final String funcao;
     Funcao(String funcao){

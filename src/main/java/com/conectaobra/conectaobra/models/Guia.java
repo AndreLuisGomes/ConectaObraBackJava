@@ -16,9 +16,9 @@ public class Guia {
 
     private String local;
 
-    private String nome;
+    private String status;
 
-    private Status status;
+    private String nome;
 
     private UUID clienteId;
 

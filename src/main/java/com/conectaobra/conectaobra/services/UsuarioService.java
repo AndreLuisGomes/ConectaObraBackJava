@@ -20,10 +20,7 @@ public class UsuarioService {
     // Métodos de verificação //
 
     public boolean verificarUsuario(Usuario usuario){
-        if(usuarioRepository.existsById(usuario.getId())){
-            return true;
-        }
-        return false;
+        return usuarioRepository.existsById(usuario.getId());
     }
 
     // Métodos de obtenção //

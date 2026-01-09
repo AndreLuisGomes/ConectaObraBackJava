@@ -2,7 +2,6 @@ package com.conectaobra.conectaobra.controllers;
 
 import com.conectaobra.conectaobra.dtos.GuiaDTO;
 import com.conectaobra.conectaobra.models.Guia;
-import com.conectaobra.conectaobra.models.Status;
 import com.conectaobra.conectaobra.services.GuiaService;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
@@ -24,10 +23,9 @@ public class GuiaController {
     public List<Guia> obterGuias(
             @RequestParam(value = "local", required = false) String local,
             @RequestParam(value = "nome", required = false) String nome,
-            @RequestParam(value = "guiaStatus", required = false) Status status,
             @RequestParam(value = "nomeCliente", required = false) UUID nomeCliente
             ){
-        GuiaDTO guiaDTO = new GuiaDTO(local, nome, status, nomeCliente);
+        GuiaDTO guiaDTO = new GuiaDTO(local, nome, nomeCliente);
         return guiaService.obterGuiaPorParametros(guiaDTO);
     }
 

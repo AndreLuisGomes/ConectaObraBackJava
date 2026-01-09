@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "suporte")
+@Table(name = "suportes")
 @Data
 public class Suporte {
 
@@ -23,10 +23,10 @@ public class Suporte {
     @Column(name = "guia_id")
     private UUID guiaId;
 
-    private Status status;
-
     @Column(name = "descricao")
     private String descricao;
+
+    private String status;
 
     private String localizacao;
 }
