@@ -46,15 +46,19 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> criarUsuario(@RequestBody UsuarioDTO usuarioDTO){
-        Usuario usuario = usuarioDTO.mapearParaUsuario();
-        usuarioService.criarUsuario(usuario);
-        URI uri = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("{/id}")
-                .buildAndExpand(usuario.getId())
-                .toUri();
-        return ResponseEntity.created(uri).build();
+    public ResponseEntity<String> criarUsuario(@RequestBody UsuarioDTO usuarioDTO){
+        Optional<Usuario> usuario2 = this.usuarioService.obterPorNome(usuarioDTO.nome());
+        if(usuario2.isEmpty()){
+            Usuario usuario = usuarioDTO.mapearParaUsuario();
+            usuarioService.criarUsuario(usuario);
+            URI uri = ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .path("{/id}")
+                    .buildAndExpand(usuario.getId())
+                    .toUri();
+            return ResponseEntity.created(uri).build();
+        }
+        return ResponseEntity.status(409).body("Email já registrado!");
     }
 
     // Métodos DELETEs //

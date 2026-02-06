@@ -1,0 +1,1 @@
+INSERT IGNORE INTO tb_role (nome) VALUES ('ADMIN'),('USUARIO'), ('VISITANTE'), ('TESTADOR');

@@ -22,11 +22,11 @@ public class Usuario{
 
     private String senha;
 
-    private String email;
-
-    private String funcao;
-
-    private String setor;
-
-    private String role;
+    @ManyToOne
+    @JoinTable(
+            name = "usuario_role",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Role role;
 }

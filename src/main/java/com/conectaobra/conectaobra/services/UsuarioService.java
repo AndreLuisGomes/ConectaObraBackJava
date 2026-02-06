@@ -1,8 +1,10 @@
 package com.conectaobra.conectaobra.services;
 
+import com.conectaobra.conectaobra.dtos.UsuarioLoginDTO;
 import com.conectaobra.conectaobra.models.Usuario;
 import com.conectaobra.conectaobra.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,12 @@ public class UsuarioService {
         return usuarioRepository.existsById(usuario.getId());
     }
 
+    public boolean loginEstaCorreto(UsuarioLoginDTO usuarioLoginDTO, PasswordEncoder passwordEncoder){
+        Optional<Usuario> usuarioDoBanco = this.usuarioRepository.findByNome(usuarioLoginDTO.nome());
+        return usuarioDoBanco.filter(usuario -> passwordEncoder.matches(usuarioLoginDTO.senha(), usuario.getSenha())).isPresent();
+    }
+
+
     // Métodos de obtenção //
 
     public List<Usuario> obterTodos(){
@@ -33,11 +41,12 @@ public class UsuarioService {
         return usuarioRepository.findById(uuid);
     }
 
+    public Optional<Usuario> obterPorNome(String nome) { return usuarioRepository.findByNome(nome); }
+
     // Métodos de criação //
 
-    public Usuario criarUsuario(Usuario usuario){
+    public void criarUsuario(Usuario usuario){
         usuarioRepository.save(usuario);
-        return usuario;
     }
 
     // Métodos de atualização //
@@ -49,6 +58,7 @@ public class UsuarioService {
            return usuarioRepository.save(u);
         });
     }
+
 
     // Métodos de deleção //
 

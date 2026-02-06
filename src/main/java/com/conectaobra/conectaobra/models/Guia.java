@@ -21,5 +21,4 @@ public class Guia {
     private String nome;
 
     private UUID clienteId;
-
 }
