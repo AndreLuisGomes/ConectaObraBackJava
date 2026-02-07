@@ -6,6 +6,7 @@ import com.conectaobra.conectaobra.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,11 +16,11 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UsuarioService {
 
-    // Injeção de dependências //
+    // Dependências \\
 
     private final UsuarioRepository usuarioRepository;
 
-    // Métodos de verificação //
+    // Métodos para verificação \\
 
     public boolean verificarUsuario(Usuario usuario){
         return usuarioRepository.existsById(usuario.getId());
@@ -31,7 +32,7 @@ public class UsuarioService {
     }
 
 
-    // Métodos de obtenção //
+    // Métodos para obter \\
 
     public List<Usuario> obterTodos(){
         return usuarioRepository.findAll();
@@ -43,14 +44,16 @@ public class UsuarioService {
 
     public Optional<Usuario> obterPorNome(String nome) { return usuarioRepository.findByNome(nome); }
 
-    // Métodos de criação //
+    // Métodos para salvar \\
 
-    public void criarUsuario(Usuario usuario){
+    @Transactional
+    public void salvarUsuario(Usuario usuario){
         usuarioRepository.save(usuario);
     }
 
-    // Métodos de atualização //
+    // Métodos para atualizar \\
 
+    @Transactional
     public Optional<Usuario> atualizarUsuario(Usuario usuario){
         return usuarioRepository.findById(usuario.getId()).map(u -> {
            u.setNome(usuario.getNome());
@@ -59,9 +62,9 @@ public class UsuarioService {
         });
     }
 
+    // Métodos para deletar \\
 
-    // Métodos de deleção //
-
+    @Transactional
     public void deletarUsuario(UUID usuarioId){
         usuarioRepository.deleteById(usuarioId);
     }

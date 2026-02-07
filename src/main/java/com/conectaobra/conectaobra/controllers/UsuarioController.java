@@ -50,7 +50,7 @@ public class UsuarioController {
         Optional<Usuario> usuario2 = this.usuarioService.obterPorNome(usuarioDTO.nome());
         if(usuario2.isEmpty()){
             Usuario usuario = usuarioDTO.mapearParaUsuario();
-            usuarioService.criarUsuario(usuario);
+            usuarioService.salvarUsuario(usuario);
             URI uri = ServletUriComponentsBuilder
                     .fromCurrentRequest()
                     .path("{/id}")

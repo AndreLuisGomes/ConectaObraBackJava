@@ -2,6 +2,7 @@ package com.conectaobra.conectaobra.services;
 
 import com.conectaobra.conectaobra.models.Suporte;
 import com.conectaobra.conectaobra.repositories.SuporteRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 public class SuporteService {
 
-    // Injeção de dependências
+    // Dependências \\
 
     private final SuporteRepository suporteRepository;
 
-    // Métodos para obtenção
+    // Métodos para obter \\
 
     public List<Suporte> obterTodos() {
         return suporteRepository.findAll();
@@ -25,6 +26,9 @@ public class SuporteService {
         return suporteRepository.findByTag(tag);
     }
 
+    // Métodos para salvar \\
+
+    @Transactional
     public void salvarSuporte(Suporte suporte){
         suporteRepository.save(suporte);
     }

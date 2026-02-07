@@ -22,7 +22,7 @@ public class Usuario{
 
     private String senha;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinTable(
             name = "usuario_role",
             joinColumns = @JoinColumn(name = "usuario_id"),

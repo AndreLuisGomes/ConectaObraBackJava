@@ -5,6 +5,8 @@ import com.conectaobra.conectaobra.models.Cliente;
 import com.conectaobra.conectaobra.services.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -13,8 +15,9 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("clientes")
 @AllArgsConstructor
+@EnableMethodSecurity
 public class ClienteController {
 
     private final ClienteService clienteService;
@@ -28,6 +31,7 @@ public class ClienteController {
         return clienteService.obterClientesPorParametros(clienteDTO);
     }
 
+    @PreAuthorize("hasAnyRole('SCOPE_admin', ')")
     @PostMapping
     public ResponseEntity<Cliente> salvarCliente(@RequestBody ClienteDTO clienteDTO){
         Cliente cliente = clienteDTO.mapearParaCliente();

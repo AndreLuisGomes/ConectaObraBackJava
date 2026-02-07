@@ -4,6 +4,7 @@ import com.conectaobra.conectaobra.dtos.GuiaDTO;
 import com.conectaobra.conectaobra.models.Guia;
 import com.conectaobra.conectaobra.repositories.GuiaRepository;
 import com.conectaobra.conectaobra.repositories.specs.GuiaSpecs;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,11 @@ import java.util.UUID;
 @AllArgsConstructor
 public class GuiaService {
 
+    // Dependências \\
+
     private final GuiaRepository guiaRepository;
+
+    // Métodos para obter \\
 
     public List<Guia> obterGuiaPorParametros(GuiaDTO guiaDTO){
 
@@ -38,14 +43,20 @@ public class GuiaService {
         return guiaRepository.findAll();
     }
 
-    public Guia salvarGuia(Guia guia){
-        return guiaRepository.save(guia);
-    }
-
     public Guia obterGuiaPorNome(String nome){
         return guiaRepository.findByNome(nome);
     }
 
+    // Métodos para salvar \\
+
+    @Transactional
+    public Guia salvarGuia(Guia guia){
+        return guiaRepository.save(guia);
+    }
+
+    // Métodos para atualizar \\
+
+    @Transactional
     public Guia atualizarGuia(Guia guia){
         Optional<Guia> guiaEncontrada = guiaRepository.findById(guia.getId());
         if(guiaEncontrada.isPresent()){
@@ -54,6 +65,9 @@ public class GuiaService {
         return guia;
     }
 
+    // Métodos para deletar \\
+
+    @Transactional
     public void deletarGuia(UUID uuid){
         guiaRepository.deleteById(uuid);
     }

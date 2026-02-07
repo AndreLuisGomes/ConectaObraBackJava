@@ -34,6 +34,8 @@ import java.security.interfaces.RSAPublicKey;
 @EnableWebSecurity
 public class SecurityFilter {
 
+    // Beans \\
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http
@@ -66,18 +68,6 @@ public class SecurityFilter {
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//
-//        UserDetails admin = User.builder()
-//                .username("admin")
-//                .password(this.passwordEncoder().encode("admin"))
-//                .roles("ADMIN")
-//                .build();
-//
-//        return new InMemoryUserDetailsManager(admin);
-//    }
 
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception{
