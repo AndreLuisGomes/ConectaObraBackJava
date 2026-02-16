@@ -44,7 +44,7 @@ public class SecurityFilter {
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .authorizeHttpRequests(authorizer -> { authorizer
-                        .requestMatchers(HttpMethod.POST,"auth/**").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/auth/**").permitAll()
                         .anyRequest().authenticated();
                 })
                 .cors(Customizer.withDefaults())
