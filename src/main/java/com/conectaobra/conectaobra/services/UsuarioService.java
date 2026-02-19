@@ -1,5 +1,6 @@
 package com.conectaobra.conectaobra.services;
 
+import com.conectaobra.conectaobra.dtos.UsuarioDTO;
 import com.conectaobra.conectaobra.dtos.UsuarioLoginDTO;
 import com.conectaobra.conectaobra.models.Usuario;
 import com.conectaobra.conectaobra.repositories.UsuarioRepository;
@@ -31,6 +32,18 @@ public class UsuarioService {
         return usuarioDoBanco.filter(usuario -> passwordEncoder.matches(usuarioLoginDTO.senha(), usuario.getSenha())).isPresent();
     }
 
+    public boolean camposLoginCorretos(UsuarioLoginDTO usuarioLoginDTO){
+        if(usuarioLoginDTO.senha() == null || usuarioLoginDTO.nome() == null){
+            return false;
+        }else return !usuarioLoginDTO.senha().isBlank() &&
+                !usuarioLoginDTO.nome().isBlank();
+    }
+
+//    public boolean camposRegistroCorretos(Usuario usuarioDTO){
+//        if(camposLoginCorretos(new UsuarioLoginDTO(usuarioDTO.getNome(), usuarioDTO.getSenha()))){
+//
+//        }
+//    }
 
     // Métodos para obter \\
 
