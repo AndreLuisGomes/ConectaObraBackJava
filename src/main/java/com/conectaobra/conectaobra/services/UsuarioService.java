@@ -33,10 +33,9 @@ public class UsuarioService {
     }
 
     public boolean camposLoginCorretos(UsuarioLoginDTO usuarioLoginDTO){
-        if(usuarioLoginDTO.senha() == null || usuarioLoginDTO.nome() == null){
+        if(usuarioLoginDTO.nome() == null || usuarioLoginDTO.senha() == null){
             return false;
-        }else return !usuarioLoginDTO.senha().isBlank() &&
-                !usuarioLoginDTO.nome().isBlank();
+        }else return !usuarioLoginDTO.nome().isBlank();
     }
 
 //    public boolean camposRegistroCorretos(Usuario usuarioDTO){
