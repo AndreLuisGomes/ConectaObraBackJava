@@ -31,7 +31,7 @@ public class ClienteController {
         return clienteService.obterClientesPorParametros(clienteDTO);
     }
 
-    @PreAuthorize("hasAnyRole('SCOPE_admin', ')")
+//    @PreAuthorize("hasAnyRole('SCOPE_admin')")
     @PostMapping
     public ResponseEntity<Cliente> salvarCliente(@RequestBody ClienteDTO clienteDTO){
         Cliente cliente = clienteDTO.mapearParaCliente();
@@ -44,12 +44,14 @@ public class ClienteController {
         return ResponseEntity.created(uri).body(cliente);
     }
 
+    @PreAuthorize("hasAnyRole('SCOPE_admin')")
     @PutMapping
     public ResponseEntity<Cliente> atualizarCliente(@RequestBody Cliente cliente){
         clienteService.salvarCliente(cliente);
         return ResponseEntity.ok().body(cliente);
     }
 
+    @PreAuthorize("hasRole('SCOPE_admin')")
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deletarCliente(@PathVariable(value = "id") UUID clienteId){
         clienteService.deletarClientePorId(clienteId);
