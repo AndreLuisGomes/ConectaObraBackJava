@@ -55,16 +55,16 @@ public class AuthController {
         if(!usuarioService.camposLoginCorretos(usuarioLoginDTO)){
             return ResponseEntity.status(400).body("Campo usuário ou senha não podem ser vazios!");
         }
-        String nomeLogin = usuarioLoginDTO.nome().trim();
+        UsuarioLoginDTO usuarioLogin = new UsuarioLoginDTO(usuarioLoginDTO.nome().trim(), usuarioLoginDTO.senha());
 
         // Verificar se os dados batem \\
-        Optional<Usuario> usuarioDoBanco = this.usuarioService.obterPorNome(nomeLogin);
+        Optional<Usuario> usuarioDoBanco = this.usuarioService.obterPorNome(usuarioLogin.nome());
 
         if(usuarioDoBanco.isPresent() &&
-                (usuarioDoBanco.get().getNome().equals(nomeLogin)) &&
-                (this.usuarioService.loginEstaCorreto(usuarioLoginDTO, passwordEncoder))
+                (usuarioDoBanco.get().getNome().equals(usuarioLogin.nome())) &&
+                (this.usuarioService.loginEstaCorreto(usuarioLogin, passwordEncoder))
         ){
-            return ResponseEntity.ok().body(new AuthResponse(nomeLogin,
+            return ResponseEntity.ok().body(new AuthResponse(usuarioLogin.nome(),
                     this.gerarJWT(usuarioDoBanco.get(), AUTH_TOKEN).getTokenValue(),
                     this.gerarJWT(usuarioDoBanco.get(), AUTH_REFRESH_TOKEN).getTokenValue(),
                     usuarioDoBanco.get().getRole().getNome()
