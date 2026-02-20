@@ -7,6 +7,7 @@ import com.conectaobra.models.Role;
 import com.conectaobra.models.Usuario;
 import com.conectaobra.services.RoleService;
 import com.conectaobra.services.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -46,7 +47,7 @@ public class AuthController {
     // Método de login \\
 
     @PostMapping("logar")
-    ResponseEntity<Object> logar(@RequestBody UsuarioLoginDTO usuarioLoginDTO){
+    ResponseEntity<Object> logar(@RequestBody @Valid UsuarioLoginDTO usuarioLoginDTO){
 
         // Verificar se os campos não são nulos \\
         if(!usuarioService.camposLoginCorretos(usuarioLoginDTO)){
@@ -61,7 +62,8 @@ public class AuthController {
                 (usuarioDoBanco.get().getNome().equals(usuarioLogin.nome())) &&
                 (this.usuarioService.loginEstaCorreto(usuarioLogin, passwordEncoder))
         ){
-            return ResponseEntity.ok().body(new AuthResponse(usuarioLogin.nome(),
+            return ResponseEntity.ok().body(
+                    new AuthResponse(usuarioLogin.nome(),
                     this.gerarJWT(usuarioDoBanco.get(), AUTH_TOKEN).getTokenValue(),
                     this.gerarJWT(usuarioDoBanco.get(), AUTH_REFRESH_TOKEN).getTokenValue(),
                     usuarioDoBanco.get().getRole().getNome()
@@ -101,8 +103,6 @@ public class AuthController {
         Instant now = Instant.now();
 
         String scope = usuario.getRole().getNome();
-
-        Optional<Role> role = this.roleService.obterPorId(usuario.getRole().getId());
 
         // Claims: são os "componentes" que o JwtEncoder aceita para sua construção \\
         JwtClaimsSet claims = JwtClaimsSet.builder()
