@@ -1,6 +1,6 @@
-package com.conectaobra.conectaobra.dtos;
+package com.conectaobra.dtos;
 
-import com.conectaobra.conectaobra.models.Cliente;
+import com.conectaobra.models.Cliente;
 
 public record ClienteDTO(String nome, String contato, String localizacaoSede) {
 

@@ -1,8 +1,8 @@
-package com.conectaobra.conectaobra.controllers;
+package com.conectaobra.controllers;
 
-import com.conectaobra.conectaobra.dtos.ClienteDTO;
-import com.conectaobra.conectaobra.models.Cliente;
-import com.conectaobra.conectaobra.services.ClienteService;
+import com.conectaobra.dtos.ClienteDTO;
+import com.conectaobra.models.Cliente;
+import com.conectaobra.services.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,9 +1,9 @@
-package com.conectaobra.conectaobra.services;
+package com.conectaobra.services;
 
-import com.conectaobra.conectaobra.dtos.GuiaDTO;
-import com.conectaobra.conectaobra.models.Guia;
-import com.conectaobra.conectaobra.repositories.GuiaRepository;
-import com.conectaobra.conectaobra.repositories.specs.GuiaSpecs;
+import com.conectaobra.dtos.GuiaDTO;
+import com.conectaobra.models.Guia;
+import com.conectaobra.repositories.GuiaRepository;
+import com.conectaobra.repositories.specs.GuiaSpecs;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;

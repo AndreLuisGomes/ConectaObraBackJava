@@ -1,7 +1,7 @@
-package com.conectaobra.conectaobra.services;
+package com.conectaobra.services;
 
-import com.conectaobra.conectaobra.models.Suporte;
-import com.conectaobra.conectaobra.repositories.SuporteRepository;
+import com.conectaobra.models.Suporte;
+import com.conectaobra.repositories.SuporteRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

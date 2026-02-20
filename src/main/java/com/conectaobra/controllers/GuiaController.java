@@ -1,8 +1,8 @@
-package com.conectaobra.conectaobra.controllers;
+package com.conectaobra.controllers;
 
-import com.conectaobra.conectaobra.dtos.GuiaDTO;
-import com.conectaobra.conectaobra.models.Guia;
-import com.conectaobra.conectaobra.services.GuiaService;
+import com.conectaobra.dtos.GuiaDTO;
+import com.conectaobra.models.Guia;
+import com.conectaobra.services.GuiaService;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

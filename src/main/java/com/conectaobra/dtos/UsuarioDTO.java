@@ -1,7 +1,7 @@
-package com.conectaobra.conectaobra.dtos;
+package com.conectaobra.dtos;
 
-import com.conectaobra.conectaobra.models.Role;
-import com.conectaobra.conectaobra.models.Usuario;
+import com.conectaobra.models.Role;
+import com.conectaobra.models.Usuario;
 
 public record UsuarioDTO(String nome, String senha, Role role){
 

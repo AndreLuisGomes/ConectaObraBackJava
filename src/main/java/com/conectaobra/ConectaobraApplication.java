@@ -1,4 +1,4 @@
-package com.conectaobra.conectaobra;
+package com.conectaobra;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,5 +15,4 @@ public class ConectaobraApplication{
 	public String apiName(){
 		return "ConectaObra";
 	}
-
 }

@@ -1,6 +1,6 @@
-package com.conectaobra.conectaobra.repositories.specs;
+package com.conectaobra.repositories.specs;
 
-import com.conectaobra.conectaobra.models.Cliente;
+import com.conectaobra.models.Cliente;
 import jakarta.annotation.Nullable;
 import org.springframework.data.jpa.domain.Specification;
 

@@ -1,7 +1,6 @@
-package com.conectaobra.conectaobra.repositories;
+package com.conectaobra.repositories;
 
-import com.conectaobra.conectaobra.models.Cliente;
-import com.conectaobra.conectaobra.models.Usuario;
+import com.conectaobra.models.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

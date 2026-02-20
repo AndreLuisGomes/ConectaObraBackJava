@@ -1,4 +1,4 @@
-package com.conectaobra.conectaobra.controllers;
+package com.conectaobra.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.oauth2.jwt.JwtEncoder;

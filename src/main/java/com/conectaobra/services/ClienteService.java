@@ -1,11 +1,10 @@
-package com.conectaobra.conectaobra.services;
+package com.conectaobra.services;
 
-import com.conectaobra.conectaobra.dtos.ClienteDTO;
-import com.conectaobra.conectaobra.models.Cliente;
-import com.conectaobra.conectaobra.repositories.ClienteRepository;
-import com.conectaobra.conectaobra.repositories.specs.ClienteSpecs;
+import com.conectaobra.dtos.ClienteDTO;
+import com.conectaobra.models.Cliente;
+import com.conectaobra.repositories.ClienteRepository;
+import com.conectaobra.repositories.specs.ClienteSpecs;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

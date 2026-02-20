@@ -1,9 +1,8 @@
-package com.conectaobra.conectaobra.services;
+package com.conectaobra.services;
 
-import com.conectaobra.conectaobra.dtos.UsuarioDTO;
-import com.conectaobra.conectaobra.dtos.UsuarioLoginDTO;
-import com.conectaobra.conectaobra.models.Usuario;
-import com.conectaobra.conectaobra.repositories.UsuarioRepository;
+import com.conectaobra.dtos.UsuarioLoginDTO;
+import com.conectaobra.models.Usuario;
+import com.conectaobra.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

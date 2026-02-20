@@ -1,7 +1,7 @@
-package com.conectaobra.conectaobra.repositories.specs;
+package com.conectaobra.repositories.specs;
 
-import com.conectaobra.conectaobra.enums.Funcao;
-import com.conectaobra.conectaobra.models.Usuario;
+import com.conectaobra.enums.Funcao;
+import com.conectaobra.models.Usuario;
 import org.springframework.data.jpa.domain.Specification;
 
 public class UsuarioSpecs{

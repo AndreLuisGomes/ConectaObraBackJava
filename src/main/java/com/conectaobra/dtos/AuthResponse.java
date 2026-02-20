@@ -1,4 +1,4 @@
-package com.conectaobra.conectaobra.dtos;
+package com.conectaobra.dtos;
 
 public record AuthResponse(String nome,
                            String accessToken,

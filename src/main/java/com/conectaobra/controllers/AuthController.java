@@ -1,16 +1,13 @@
-package com.conectaobra.conectaobra.controllers;
+package com.conectaobra.controllers;
 
-import com.conectaobra.conectaobra.dtos.AuthResponse;
-import com.conectaobra.conectaobra.dtos.UsuarioDTO;
-import com.conectaobra.conectaobra.dtos.UsuarioLoginDTO;
-import com.conectaobra.conectaobra.models.Role;
-import com.conectaobra.conectaobra.models.Usuario;
-import com.conectaobra.conectaobra.services.RoleService;
-import com.conectaobra.conectaobra.services.UsuarioService;
-import com.nimbusds.jwt.JWTClaimsSet;
+import com.conectaobra.dtos.AuthResponse;
+import com.conectaobra.dtos.UsuarioDTO;
+import com.conectaobra.dtos.UsuarioLoginDTO;
+import com.conectaobra.models.Role;
+import com.conectaobra.models.Usuario;
+import com.conectaobra.services.RoleService;
+import com.conectaobra.services.UsuarioService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;

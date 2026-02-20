@@ -1,8 +1,4 @@
-package com.conectaobra.conectaobra.enums;
-
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+package com.conectaobra.enums;
 
 public enum Material {
     ACO_INOX("Aço Inox"),

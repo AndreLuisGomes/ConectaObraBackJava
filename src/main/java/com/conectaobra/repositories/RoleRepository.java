@@ -1,6 +1,6 @@
-package com.conectaobra.conectaobra.repositories;
+package com.conectaobra.repositories;
 
-import com.conectaobra.conectaobra.models.Role;
+import com.conectaobra.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

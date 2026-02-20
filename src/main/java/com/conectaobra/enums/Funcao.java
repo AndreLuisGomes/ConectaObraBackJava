@@ -1,4 +1,4 @@
-package com.conectaobra.conectaobra.enums;
+package com.conectaobra.enums;
 
 public enum Funcao {
 

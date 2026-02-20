@@ -1,6 +1,6 @@
-package com.conectaobra.conectaobra.dtos;
+package com.conectaobra.dtos;
 
-import com.conectaobra.conectaobra.models.Guia;
+import com.conectaobra.models.Guia;
 
 import java.util.UUID;
 

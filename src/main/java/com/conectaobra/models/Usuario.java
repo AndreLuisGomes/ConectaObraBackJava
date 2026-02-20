@@ -1,4 +1,4 @@
-package com.conectaobra.conectaobra.models;
+package com.conectaobra.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
